@@ -5,7 +5,6 @@ import 'package:flutter_polyline_points/src/utils/my_request_enums.dart';
 import 'package:flutter_polyline_points/src/utils/result_polyline.dart';
 import 'package:flutter_polyline_points/src/utils/waypoint_polyline.dart';
 import 'package:http/http.dart' as http;
- 
 
 import 'dart:math' as math show pow;
 
@@ -39,21 +38,13 @@ class MyNetworkUtil {
       params.addAll({"waypoints": wayPointsString});
     }
     Uri uri = Uri.https("maps.googleapis.com", "maps/api/directions/json", params);
-    // uri = Uri.parse("https://cors-anywhere.herokuapp.com/$uri");
-    // Map<String, String> headers = {
-    //   "Access-Control-Allow-Origin": "https://portakil.com/", // Required for CORS support to work
-    //   'Access-Control-Allow-Methods': '*',
-    //   "Access-Control-Allow-Headers": "*",
-    // };
 
-    // print('GOOGLE MAPS URL: ' + url);
     try {
       var response = await http.get(uri);
       if (response.statusCode == 200) {
         var parsedJson = json.decode(response.body);
         result.status = parsedJson["status"];
         if (parsedJson["status"]?.toLowerCase() == sTATUSOK && parsedJson["routes"] != null && parsedJson["routes"].isNotEmpty) {
-          // result.points = decodeEncodedPolyline(parsedJson["routes"][0]["overview_polyline"]["points"]);
           result.points = decodePolyline(parsedJson["routes"][0]["overview_polyline"]["points"]).cast<MyPointLatLng>();
         } else {
           result.errorMessage = parsedJson["error_message"];
@@ -67,10 +58,6 @@ class MyNetworkUtil {
     return result;
   }
 
-  ///decode the google encoded string using Encoded Polyline Algorithm Format
-  /// for more info about the algorithm check https://developers.google.com/maps/documentation/utilities/polylinealgorithm
-  ///
-  ///return [List]
   List<MyPointLatLng> decodeEncodedPolyline(String encoded) {
     List<MyPointLatLng> poly = [];
     int index = 0, len = encoded.length;
@@ -101,14 +88,9 @@ class MyNetworkUtil {
     return poly;
   }
 
-  //   List<List<num>> decodePolylinee(String encoded) {
-  //  return decodePolyline(encoded);
-
-  // }
-
   List<MyPointLatLng> decodePolyline(String polyline, {int accuracyExponent = 5}) {
     final accuracyMultiplier = math.pow(10, accuracyExponent);
-    // final List<List<num>> coordinates = [];
+
     List<MyPointLatLng> coordinates = [];
 
     int index = 0;

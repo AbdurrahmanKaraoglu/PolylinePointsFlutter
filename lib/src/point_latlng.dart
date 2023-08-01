@@ -1,35 +1,16 @@
-
-
-// /// A pair of latitude and longitude coordinates, stored as degrees.
-// class MyPointLatLngs {
-
-//   /// Creates a geographical location specified in degrees [latitude] and
-//   /// [longitude].
-//   ///
-//   const MyPointLatLngs(double latitude, double longitude)
-//       : this.latitude = latitude,
-//         this.longitude = longitude;
-
-  
-
-//   @override
-//   String toString() {
-//     return "lat: $latitude / longitude: $longitude";
-//   }
-// }
-
+// point_latlng.dart
+// MyPointLatLng sınıfı, enlem ve boylamı temsil eder.
 class MyPointLatLng {
-  /// The latitude in degrees.
+  // Enlem değeri (latitude) derece cinsinden.
   final double? latitude;
 
-  /// The longitude in degrees
+  // Boylam değeri (longitude) derece cinsinden.
   final double? longitude;
 
   MyPointLatLng(this.latitude, this.longitude);
 
   @override
   String toString() {
-    return "lat: $latitude / longitude: $longitude";
+    return "enlem: $latitude / boylam: $longitude";
   }
-  
 }

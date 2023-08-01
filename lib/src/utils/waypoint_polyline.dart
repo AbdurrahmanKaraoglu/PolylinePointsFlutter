@@ -1,4 +1,3 @@
-
 class WayPointPolyline {
   String location;
 

@@ -1,18 +1,17 @@
- 
-
+// result_polyline.dart
 import 'package:flutter_polyline_points/src/point_latlng.dart';
 
+// ResultPolyline sınıfı, Google Yönlendirme API'sinden dönen sonuç polyline'ini temsil eder.
 class ResultPolyline {
 
+  // İstek durumu ("ok" veya "error").
   String? status;
 
-  /// list of decoded points
+  // Çözümlenmiş koordinat listesi.
   List<MyPointLatLng> points;
 
-  /// the error message returned from google, if none, the result will be empty
+  // Hata mesajı (eğer varsa).
   String? errorMessage;
 
   ResultPolyline({this.status, this.points = const [], this.errorMessage = ""});
-
-
 }

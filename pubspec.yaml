@@ -1,9 +1,9 @@
 name: flutter_polyline_points
-description: A new Flutter package project.
-version: 0.0.1
-homepage: "https://github.com/AbdurrahmanKaraoglu/MarkerCrafter.git"
-repository: "https://github.com/AbdurrahmanKaraoglu/MarkerCrafter.git"
-issue_tracker: "https://github.com/AbdurrahmanKaraoglu/MarkerCrafter/issues"
+description: Polyline Points Flutter, haritalarda polilinelerle çalışmak için kullanılan bir Flutter paketidir. (Polyline Points Flutter is a Flutter package that provides utilities for working with polylines on maps.)
+version: 1.0.1
+homepage: "https://github.com/AbdurrahmanKaraoglu/PolylinePointsFlutter.git"
+repository: "https://github.com/AbdurrahmanKaraoglu/PolylinePointsFlutter.git"
+issue_tracker: "https://github.com/AbdurrahmanKaraoglu/PolylinePointsFlutter/issues"
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
